@@ -154,9 +154,13 @@ export class RectShape implements IShape {
         const metrics = canvas2D.measureText(comment);
         canvas2D.save();
         canvas2D.fillStyle = fontBackground;
+        // --- コメントの位置を変更 ---
+        const commentX = x;
+        const commentY = y - fontSize - padding * 2; // ← 矩形の上に配置
+
         canvas2D.fillRect(
-          x,
-          y,
+          commentX,
+          commentY,
           metrics.width + padding * 2,
           fontSize + padding * 2
         );
